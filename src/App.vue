@@ -2,11 +2,7 @@
   <div>
     <AppHeader />
     <TodoInput @addOneItem="addOneItem" />
-    <TodoList
-      :propsdata="todos"
-      @removeTodo="removeTodo"
-      @toggleTodo="toggleTodo"
-    />
+    <TodoList @removeTodo="removeTodo" @toggleTodo="toggleTodo" />
     <!--  데이터 넘김-->
     <AppFooter @clearTodo="clearTodo" />
   </div>
@@ -46,18 +42,18 @@ export default {
       localStorage.clear();
     },
   },
-  created() {
-    if (localStorage.length > 0) {
-      for (let i = 0; i < localStorage.length; i++) {
-        if (localStorage.key(i) === 'loglevel:webpack-dev-server') return;
+  // created() {
+  //   if (localStorage.length > 0) {
+  //     for (let i = 0; i < localStorage.length; i++) {
+  //       if (localStorage.key(i) === 'loglevel:webpack-dev-server') return;
 
-        const parsedTodo = JSON.parse(
-          localStorage.getItem(localStorage.key(i))
-        );
-        this.todos.push(parsedTodo);
-      }
-    }
-  },
+  //       const parsedTodo = JSON.parse(
+  //         localStorage.getItem(localStorage.key(i))
+  //       );
+  //       this.todos.push(parsedTodo);
+  //     }
+  //   }
+  // },
   components: {
     AppHeader,
     TodoInput,

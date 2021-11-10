@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition-group name="list" tag="ul">
-      <li v-for="(todo, index) in propsdata" :key="todo.item">
+      <li v-for="(todo, index) in this.$store.state.todos" :key="todo.item">
         <span
           class="checkBtn"
           :class="{ checkComplete: todo.completed }"
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  props: ['propsdata'],
+  // props: ['propsdata'],
   methods: {},
 };
 </script>
