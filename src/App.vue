@@ -3,7 +3,6 @@
     <AppHeader />
     <TodoInput />
     <TodoList />
-
     <AppFooter />
   </div>
 </template>
