@@ -5,13 +5,11 @@
         <span
           class="checkBtn"
           :class="{ checkComplete: todo.completed }"
-          @click="$emit('toggleTodo', todo, index)"
+          @click="toggleTodo(todo, index)"
           >{{ todo.completed ? '완료' : '미완료' }}</span
         >
         <span :class="{ todoComplete: todo.completed }">{{ todo.item }}</span>
-        <button class="remove" @click="$emit('removeTodo', todo, index)">
-          X
-        </button>
+        <button class="remove" @click="removeTodo(todo, index)">X</button>
       </li>
     </transition-group>
   </div>
@@ -19,8 +17,14 @@
 
 <script>
 export default {
-  // props: ['propsdata'],
-  methods: {},
+  methods: {
+    toggleTodo(todo, index) {
+      this.$store.commit('toggleTodo', { todo, index });
+    },
+    removeTodo(todo, index) {
+      this.$store.commit('removeTodo', { todo, index });
+    },
+  },
 };
 </script>
 

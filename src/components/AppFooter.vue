@@ -1,11 +1,17 @@
 <template>
   <div>
-    <button @click="$emit('clearTodo')" class="clearAllBtn">Clear All</button>
+    <button @click="clearTodo" class="clearAllBtn">Clear All</button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    clearTodo() {
+      this.$store.commit('clearTodo');
+    },
+  },
+};
 </script>
 
 <style scoped>
