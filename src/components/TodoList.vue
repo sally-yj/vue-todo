@@ -20,7 +20,6 @@ import { mapGetters, mapMutations } from 'vuex';
 
 export default {
   methods: {
-    // ...mapMutations(['removeTodo', 'toggleTodo']),
     ...mapMutations({
       removeTodo: 'removeTodo',
       toggleTodo: 'toggleTodo',
